@@ -1,0 +1,87 @@
+
+\documentclass[twoside,a4paper]{article}
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+%\usepackage[english]{babel}
+\usepackage[none]{hyphenat} % Disable hyphenation for now
+
+\usepackage[document]{ragged2e} % Disable text justification
+
+\usepackage[left=1cm,right=1cm,hmarginratio=1:1,top=2cm,bottom=2cm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{nameref} % Named references
+\usepackage{enumitem} % Customized lists
+
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+\usepackage{tikz}
+
+\usepackage{titlesec} % Allows customization of titles
+\titleformat{\section}{\large\scshape}{\thesection.\index{}}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}{\large}{\thesubsection.\index{}}{1em}{} % Change the look of the section titles
+\titleformat{\subsubsection}{\large}{\thesubsection.\index{}}{1em}{} % Change the look of the section titles
+\usepackage{sectsty}% http://ctan.org/pkg/sectsty
+\usepackage{titlecaps}% http://ctan.org/pkg/titlecaps
+\subsubsectionfont{\MakeUppercase}
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage{ulem}
+\usepackage{contour}
+
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+
+\newcommand{\myuline}[1]{
+\uline{\phantom{#1}}\llap{\contour{white}{#1}}%
+}
+\usepackage{scrextend}
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Index, options= -s index_style.ist, intoc, columnsep=.5cm]
+\usepackage[pdfborderstyle={/S/U/W 1},linktoc=all]{hyperref} % For hyperlinks in the PDF
+
+\def\nf{1}
+\newcommand{\related}[1]{
+\def\relatedtopicslist{#1}
+\textbf{Related topics:} \foreach \x [count=\xi] in \relatedtopicslist{\ifnum\xi>1, \fi\myuline{\nameref{\x} (\pageref{\x})}}
+}
+
+\newcommand*{\seeonpage}[1]{
+\def\pagelabel{#1}
+\hyperref[{\pagelabel}]{See \myuline{"\nameref*{\pagelabel}" on page \pageref*{\pagelabel}}}
+}
+
+\newcommand{\newreference}[2]{
+	\subsubsection{#1}
+	\label{#2}
+	\index{#1}
+}
+
+%Fix very long index hanging issue
+\makeatletter
+\def\@idxitem{\par\hangindent 0pt}
+\makeatother
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\twocolumn
+\usepackage{fancyhdr}
+\fancyhf{} % clear all header and footers
+\pagestyle{fancy}
+\rfoot{\thepage}
+
+\makeatletter
+\def\@seccntformat#1{%\fi\fi
+  \expandafter\ifx\csname c@#1\endcsname\c@subsubsection\else
+  \csname the#1\endcsname\quad
+  \fi}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
