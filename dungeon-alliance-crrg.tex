@@ -3,6 +3,8 @@
 \title{Dungeon Alliance Community Reference Rules Guide} % Article title
 \begin{document}\sloppy
 
+\newcommand{\documentversion}{v0.1}
+
 %----------------------------------------------------------------------------------------
 %	COVER PAGE
 %----------------------------------------------------------------------------------------
@@ -14,14 +16,14 @@
 scale=1,
 color=black,
 angle=0,
-opacity=1,  %% adjust
+opacity=1,
 contents={\includegraphics[width=\paperwidth,height=\paperheight]{images/cover.jpg}}
 }
 
 \vspace*{\fill}
 \begin{center}
 \color{versionnrcolor}\trajan\fontsize{16}{16}\selectfont
-v0.1
+\documentversion
 \end{center}
 %
 %----------------------------------------------------------------------------------------
@@ -34,7 +36,12 @@ scale=1,
 color=black,
 angle=90,
 contents={%
-  \includegraphics[width=\paperheight,height=\paperwidth]{images/page_background.jpg}
+ \checkoddpage
+  \ifoddpage
+   \includegraphics[width=\paperheight,height=\paperwidth]{images/page_background.jpg}
+  \else
+   \includegraphics[width=\paperheight,height=\paperwidth]{images/page_background.jpg}
+  \fi
   }%
 }
 
