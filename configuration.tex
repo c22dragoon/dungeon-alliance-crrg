@@ -10,7 +10,7 @@
 
 \usepackage[document]{ragged2e} % Disable text justification
 
-\usepackage[left=1cm,right=1cm,hmarginratio=1:1,top=2cm,bottom=2.5cm,columnsep=20pt]{geometry} % Document margins
+\usepackage[left=1cm,right=1cm,hmarginratio=1:1,top=1.5cm,bottom=2.5cm,columnsep=20pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{nameref} % Named references
@@ -41,6 +41,7 @@
 \definecolor{tan}{HTML}{eddac1}
 \definecolor{sectioncolor}{HTML}{632b29}
 \definecolor{pagenrcolor}{HTML}{642c2a}
+\definecolor{versionnrcolor}{HTML}{ecac31}
 
 \usepackage{xcolor}
 \usepackage{sectsty}
@@ -50,8 +51,10 @@
 \uline{\phantom{#1}}\llap{\contour{tan}{#1}}%
 }
 %\usepackage{scrextend}
+
 \usepackage{imakeidx}
 \makeindex[columns=3, title=Index, options= -s index_style.ist, intoc, columnsep=.5cm]
+\indexsetup{firstpagestyle=fancy}
 \usepackage[pdfborderstyle={/S/U/W 1},linktoc=all]{hyperref} % For hyperlinks in the PDF
 
 \def\nf{1}
@@ -102,14 +105,7 @@
 \makeatother
 
 \usepackage{background}
-\backgroundsetup{
-scale=1,
-color=black,
-angle=90,
-contents={%
-  \includegraphics[width=\paperheight,height=\paperwidth]{images/page_background5.png}
-  }%
-}
+
 \setlength{\footskip}{1.5cm}
 %\setmainfont{TrajanPro-Bold}
 

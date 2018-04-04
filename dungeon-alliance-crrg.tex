@@ -6,13 +6,38 @@
 %----------------------------------------------------------------------------------------
 %	COVER PAGE
 %----------------------------------------------------------------------------------------
-Cover page
+\thispagestyle{empty}
+\onecolumn
+\newgeometry{left=0cm,bottom=0.15cm,right=0cm,top=0cm}
 
+\backgroundsetup{
+scale=1,
+color=black,
+angle=0,
+opacity=1,  %% adjust
+contents={\includegraphics[width=\paperwidth,height=\paperheight]{images/cover.jpg}}
+}
 
+\vspace*{\fill}
+\begin{center}
+\color{versionnrcolor}\trajan\fontsize{16}{16}\selectfont
+v0.1
+\end{center}
+%
 %----------------------------------------------------------------------------------------
 %	PREFACE & CONTENTS
 %----------------------------------------------------------------------------------------
 \clearpage
+\restoregeometry
+\backgroundsetup{
+scale=1,
+color=black,
+angle=90,
+contents={%
+  \includegraphics[width=\paperheight,height=\paperwidth]{images/page_background.jpg}
+  }%
+}
+
 \section{Preface}
 \label{sec:Preface}
 \input{sec_preface.tex}
@@ -25,10 +50,7 @@ Cover page
 %----------------------------------------------------------------------------------------
 %	RULES REFERENCE GUIDE
 %----------------------------------------------------------------------------------------
-\clearpage
-\section{Rules Reference Guide}
-\label{sec:RulesReferenceGuide}
-\input{sec_reference.tex}
+\include{sec_reference}
 
 %----------------------------------------------------------------------------------------
 %	ERRATA AND FAQ
