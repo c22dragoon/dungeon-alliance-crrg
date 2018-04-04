@@ -15,21 +15,27 @@
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{nameref} % Named references
 \usepackage{enumitem} % Customized lists
-
+\usepackage{ifoddpage}
 \usepackage{fontspec} % For loading fonts
 \newfontfamily\trajan{TrajanPro-Bold}
 
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
 \usepackage{tikz}
-
+\usepackage{textcase}
 \usepackage{titlesec} % Allows customization of titles
-\titleformat{\section}{\large\scshape}{\thesection.\index{}}{1em}{}
-\titleformat{\subsection}{\large}{\thesubsection.\index{}}{1em}{}
-\titleformat{\subsubsection}{\large}{\thesubsection.\index{}}{1em}{}
+\titleformat{\section}{\color{sectioncolor}\trajan\fontsize{16}{16}\selectfont}{\thesection.\index{}}{1em}{}
+\titleformat{\subsection}{\trajan\fontsize{14}{14}\selectfont}{\thesubsection.\index{}}{1em}{}
+\titleformat{\subsubsection}{\trajan\fontsize{12}{12}\selectfont}{}{0em}{}
 
-\usepackage{sectsty}% http://ctan.org/pkg/sectsty
-\usepackage{titlecaps}% http://ctan.org/pkg/titlecaps
-\subsubsectionfont{\MakeUppercase}
+%\titlespacing*{<command>}{<left>}{<before-sep>}{<after-sep>}
+%\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+%\titlespacing*{\subsection}{0pt}{1.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+%\titlespacing*{\subsubsection}{0pt}{0.4cm}{0.4cm}
+
+
+%\usepackage{sectsty}% http://ctan.org/pkg/sectsty
+%\usepackage{titlecaps}% http://ctan.org/pkg/titlecaps
+%\subsubsectionfont{\MakeUppercase}
 
 
 \usepackage{ulem}
@@ -38,14 +44,14 @@
 \renewcommand{\ULdepth}{1.8pt}
 \contourlength{0.8pt}
 
-\definecolor{tan}{HTML}{eddac1}
+\definecolor{tan}{HTML}{e5c596}
 \definecolor{sectioncolor}{HTML}{632b29}
 \definecolor{pagenrcolor}{HTML}{642c2a}
 \definecolor{versionnrcolor}{HTML}{ecac31}
 
 \usepackage{xcolor}
-\usepackage{sectsty}
-\sectionfont{\trajan\color{sectioncolor}}  % sets colour of sections
+%\usepackage{sectsty}
+%\sectionfont{\trajan\color{sectioncolor}}  % sets colour of sections
 
 \newcommand{\myuline}[1]{
 \uline{\phantom{#1}}\llap{\contour{tan}{#1}}%
@@ -58,9 +64,11 @@
 \usepackage[pdfborderstyle={/S/U/W 1},linktoc=all]{hyperref} % For hyperlinks in the PDF
 
 \def\nf{1}
-\newcommand{\related}[1]{
-\def\relatedtopicslist{#1}
-\textbf{Related topics:} \foreach \x [count=\xi] in \relatedtopicslist{\ifnum\xi>1, \fi\myuline{\nameref{\x} (\pageref{\x})}}
+\newcommand{\related}[1]{%
+\def\relatedtopicslist{#1}\textbf{Related topics:}%
+\foreach \x [count=\xi] in \relatedtopicslist{%
+	\ifnum\xi>1, \fi\myuline{\nameref{\x} (\pageref{\x})}%
+}%
 }
 
 \newcommand*{\seeonpage}[1]{
