@@ -1,5 +1,4 @@
-# dungeon-alliance-crrg
-Dungeon Alliance - Community Rules Reference Guide
+# Dungeon Alliance - Community Rules Reference Guide
 
 This is a LaTeX document which acts as a rules cross reference guide for the Dungeon Alliance board game. The template itself can be utilized by anyone to offer similar document possibly for some other board game. I will most likely clean it up and make a separate GitHub project out of it for easier utilization.
 
