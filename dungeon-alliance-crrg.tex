@@ -32,15 +32,17 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{images/cover.j
 \clearpage
 \restoregeometry
 \backgroundsetup{
+placement=top,
 scale=1,
 color=black,
-angle=90,
+opacity=1,
+angle=0,
 contents={%
  \checkoddpage
   \ifoddpage
-   \includegraphics[width=\paperheight,height=\paperwidth]{images/page_background.jpg}
+   \includegraphics[width=\paperwidth,height=\paperheight]{images/background_right.jpg}
   \else
-   \includegraphics[width=\paperheight,height=\paperwidth]{images/page_background.jpg}
+   \includegraphics[width=\paperwidth,height=\paperheight]{images/background_left.jpg}
   \fi
   }%
 }
@@ -67,10 +69,7 @@ contents={%
 %----------------------------------------------------------------------------------------
 %	APPENDIX
 %----------------------------------------------------------------------------------------
-\clearpage
-\section{Appendix}
-\label{sec:Appendix}
-\input{sec_appendix.tex}
+\include{sec_appendix}
 
 %----------------------------------------------------------------------------------------
 %	INDEX See https://en.wikibooks.org/wiki/LaTeX/Indexing for help

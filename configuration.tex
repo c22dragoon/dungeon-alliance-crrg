@@ -10,7 +10,8 @@
 
 \usepackage[document]{ragged2e} % Disable text justification
 
-\usepackage[left=1cm,right=1cm,hmarginratio=1:1,top=1.5cm,bottom=1.5cm,columnsep=20pt]{geometry} % Document margins
+\usepackage[left=1cm,right=1cm,hmarginratio=1:1,top=1cm,bottom=2cm,columnsep=20pt]{geometry} % Document margins
+
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
 \usepackage{booktabs} % Horizontal rules in tables
 \usepackage{nameref} % Named references
@@ -19,14 +20,15 @@
 \usepackage{fontspec} % For loading fonts
 \newfontfamily\trajan{TrajanPro-Bold}
 
+\usepackage{wrapfig}
 \usepackage{float} % To float tables and figures in section
 
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
-\usepackage{tikz}
+
 \usepackage{textcase}
 \usepackage{titlesec} % Allows customization of titles
-\titleformat{\section}{\color{sectioncolor}\trajan\fontsize{16}{16}\selectfont}{\thesection.\index{}}{1em}{}
-\titleformat{\subsection}{\trajan\fontsize{14}{14}\selectfont}{\thesubsection.\index{}}{1em}{}
+\titleformat{\section}{\color{sectioncolor}\trajan\fontsize{16}{16}\selectfont}{\thesection.\index{}}{.5em}{}
+\titleformat{\subsection}{\trajan\fontsize{14}{14}\selectfont}{\thesubsection.\index{}}{.5em}{}
 \titleformat{\subsubsection}{\trajan\fontsize{12}{12}\selectfont}{}{0em}{}
 
 %\titlespacing*{<command>}{<left>}{<before-sep>}{<after-sep>}
@@ -46,12 +48,18 @@
 \renewcommand{\ULdepth}{1.8pt}
 \contourlength{0.8pt}
 
-\definecolor{tan}{HTML}{e5c596}
+
+\usepackage{tikz}
+
+\definecolor{tan}{HTML}{dbbb8e}
 \definecolor{sectioncolor}{HTML}{632b29}
 \definecolor{pagenrcolor}{HTML}{642c2a}
 \definecolor{versionnrcolor}{HTML}{ecac31}
-
+\definecolor{tableheadcolor}{HTML}{231f20}
 \usepackage{xcolor}
+
+\usepackage{colortbl}
+
 %\usepackage{sectsty}
 %\sectionfont{\trajan\color{sectioncolor}}  % sets colour of sections
 
@@ -98,6 +106,9 @@
     \color{pagenrcolor}\trajan\fontsize{20}{20}\selectfont
 }
 
+%Add more vertical padding to table rows
+\renewcommand{\arraystretch}{1.4}
+
 % Attempt to move page number to right side.
 \usepackage{fancyhdr}
 \fancyhf{} % clear all header and footers
@@ -119,6 +130,18 @@
 \setlength{\footskip}{0.5cm}
 %\setmainfont{TrajanPro-Bold}
 
+\newcommand{\vcenteredinclude}[1]{\begingroup
+\setbox0=\hbox{#1}%
+\parbox{\wd0}{\box0}\endgroup}
 
+\tikzset{mynode/.style={draw=white,text=white,solid,circle,font=\bf,line width=1pt,inner sep=1.5pt,fill=red}}
+
+\newcommand{\refimageannotation}[1]{%
+	\vcenteredinclude{%
+		\begin{tikzpicture}[scale=0.6, every node/.style={scale=0.9}]%
+		\draw (0,0) node[mynode]{#1};%
+		\end{tikzpicture}%
+	}%
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

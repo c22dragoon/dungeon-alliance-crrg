@@ -1,4 +1,4 @@
-\section{Rules Reference Guide}
+\twocolumn[\section{Rules Reference Guide}]
 \label{sec:RulesReferenceGuide}
 
 \newreference{Ability bonus}{sec:Abilitybonus}
@@ -25,7 +25,7 @@ There are two types of attacks: melee and ranged . Your hero’s attack strength
 
 TBD Attack type icons
 
-\textbf{Once your hero as attacked he cannot:}
+\textbf{Once your hero has attacked he cannot:}
 \begin{itemize}
   \item move again or continue spending remaining speed points
   \item do any other actions like playing cards, opening doors, unlocking chests etc.
@@ -124,16 +124,19 @@ TBD
 TBD
 
 \begin{table}[H]
-\centering
-\begin{tabular}{ccccc}
-\toprule
-\# of Players & 1 & 2 & 3 & 4 \\
-\midrule
+%\centering
+\resizebox{\columnwidth}{!}{\begin{tabular}{|c|>{\centering\arraybackslash\hspace{0pt}}p{.4cm}|>{\centering\arraybackslash\hspace{0pt}}p{.4cm}|>{\centering\arraybackslash\hspace{0pt}}p{.4cm}|>{\centering\arraybackslash\hspace{0pt}}p{.4cm}|}
+\hline
+\rowcolor{tableheadcolor}
+\color{white}\trajan\fontsize{10}{10}\selectfont\# of Players & \color{white}\trajan\fontsize{10}{10}\selectfont1 & \color{white}\trajan\fontsize{10}{10}\selectfont2 & \color{white}\trajan\fontsize{10}{10}\selectfont3 & \color{white}\trajan\fontsize{10}{10}\selectfont4 \\
+\hline
 Level I dungeon tile count & 6 & 6 & 8 & 10 \\
+\hline
 Level II dungeon tile count & 4 & 5 & 6 & 7 \\
+\hline
 Level III dungeon tile count & 2 & 2 & 3 & 4 \\
-\bottomrule
-\end{tabular}
+\hline
+\end{tabular}}
 \end{table}
 
 \newreference{Encounter token}{sec:Encountertoken}
@@ -145,7 +148,7 @@ TBD
 
 \newreference{Experience point}{sec:Experiencepoint}
 
-\seeonpage{XP}
+\seeonpage{sec:XP}
 
 \newreference{Game cycle}{sec:Gamecycle}
 TBD
@@ -236,7 +239,40 @@ TBD
 TBD
 
 \newreference{Quest}{sec:Quest}
-TBD
+
+\setlength{\columnsep}{2pt}%
+\setlength{\intextsep}{2pt}%
+\begin{wrapfigure}{r}{.5\columnwidth}
+\centering\includegraphics[width=.5\columnwidth]{images/quest_cards.png}
+\caption*{Quest cards}
+\end{wrapfigure}
+
+Quest Cards allow players to accomplish difficult tasks
+throughout their exploration of the dungeon. Each Quest Card
+features a Quest name and Quest Background \refimageannotation{1} that describes
+the quest's storyline.
+
+The Quest trigger \refimageannotation{2} is the circumstance that brings the quest's
+corresponding Quest Token into play (see “Quest Tokens”
+below). The Quest resolution \refimageannotation{3} is the activity that players must
+perform in order to complete the quest after it is in play.
+
+If more than one Dungeon Alliance works together to
+accomplish the quest, then the Alliance that contributed the
+most toward the Quest's resolution receives the first XP
+reward, and the Alliance that contributed the second most
+receives the second XP Reward. If only one Dungeon Alliance
+accomplishes the quest, then that Alliance receives the
+combined value of both XP Rewards \refimageannotation{4}.
+
+\hfill\begin{tikzpicture}
+    \node[anchor=south west,inner sep=0] at (0,0) {\includegraphics[width=0.6\columnwidth]{images/quest_card_detail_fade.png}};
+%    \draw[red,ultra thick,rounded corners] (7.5,5.3) rectangle (9.4,6.2);
+    \draw (2.5cm,2.8cm)node[mynode,anchor=west] {1};
+    \draw (2.5cm,2.0cm)node[mynode,anchor=west] {2};
+    \draw (2.5cm,1.2cm)node[mynode,anchor=west] {3};
+    \draw (0.5cm,0.5cm)node[mynode,anchor=west] {4};
+\end{tikzpicture}\hspace*{\fill}
 
 \newreference{Quest token}{sec:Questtoken}
 TBD
