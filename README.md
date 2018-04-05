@@ -5,6 +5,6 @@ This is a LaTeX document which acts as a rules cross reference guide for the Dun
 
 Most of the textual and image content is Copyright 2017 by Quixotic Games.
 
-# Tools and generating the PDF document
+## Tools and generating the PDF document
 
 To render the PDF, I have used XeLaTex (MiKTeX 2.9) from Texmaker (http://www.xm1math.net/texmaker/).
