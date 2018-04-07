@@ -63,7 +63,7 @@
 %\usepackage{sectsty}
 %\sectionfont{\trajan\color{sectioncolor}}  % sets colour of sections
 
-\newcommand{\myuline}[1]{
+\newcommand{\myuline}[1]{%
 \uline{\phantom{#1}}\llap{\contour{tan}{#1}}%
 }
 %\usepackage{scrextend}
@@ -75,15 +75,25 @@
 
 \def\nf{1}
 \newcommand{\related}[1]{%
-\def\relatedtopicslist{#1}\textbf{Related topics:}%
+\def\relatedtopicslist{#1}\textbf{Related topics:} %
 \foreach \x [count=\xi] in \relatedtopicslist{%
 	\ifnum\xi>1, \fi\myuline{\nameref{\x} (\pageref{\x})}%
 }%
 }
 
-\newcommand*{\seeonpage}[1]{
-\def\pagelabel{#1}
+\newcommand*{\seeonpage}[1]{%
+\def\pagelabel{#1}%
 \hyperref[{\pagelabel}]{See \myuline{"\nameref*{\pagelabel}" on page \pageref*{\pagelabel}}}%
+}
+
+\newcommand*{\seerulebookpage}[1]{%
+See page \textbf{#1} in the rulebook.
+
+}
+
+\newcommand*{\seerulesupplementpage}[1]{%
+See page \textbf{#1} in the rules supplement.
+
 }
 
 \newcommand{\newreference}[2]{
